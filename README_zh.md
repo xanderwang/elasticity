@@ -7,6 +7,8 @@
  
 这个库可以让几乎所有的 Android View 具有类似 MIUI 系统里面的一个弹性拉伸的效果。具体的效果可以参考下面的动图。
 
+[demo apk](elasticity-app-debug.apk)
+
 ![demo](demo.gif)
 
 # Gradle 依赖
@@ -16,7 +18,7 @@
 allprojects {
     repositories {
         ...
-        maven { url "https://jitpack.io/com" }
+        maven { url "https://jitpack.io" }
     }
 }
 ```
@@ -27,7 +29,7 @@ allprojects {
 dependencies {
     // ...
     
-    compile 'me.everything:overscroll-decor-android:1.0.3'
+    compile 'com.github.XanderWang:elasticity:1.0.0'
 }
 ```
 

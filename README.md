@@ -9,7 +9,7 @@ The library provides an elasticity over-scrolling effect applicable over almost 
 
 The core effect classes are loose-[decorators](https://en.wikipedia.org/wiki/Decorator_pattern) of Android views, and are thus decoupled from the actual view classes' implementations. That allows developers to apply the effect over views while keeping them as untampered 'black-boxes'. Namely, it allows for keeping important optimizations such as view-recycling intact.
 
-[中文文档](README_zh.md)
+[中文文档](README_zh.md)  [demo apk](elasticity-app-debug.apk)
 
 ![demo](demo.gif)
 
@@ -20,7 +20,8 @@ Add the following to your project's `build.gradle` file:
 allprojects {
     repositories {
         ...
-        maven { url "https://jitpack.io/com" }
+
+        maven { url "https://jitpack.io" }
     }
 }
 ```
@@ -31,7 +32,7 @@ Add the following to your module's `build.gradle` file:
 dependencies {
     // ...
     
-    compile 'xander.elasticity:elasticity:1.0.0'
+    compile 'com.github.XanderWang:elasticity:1.0.0'
 }
 ```
 

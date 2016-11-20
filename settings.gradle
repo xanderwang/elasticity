@@ -1,1 +1,3 @@
-include ':app', ':liboverscroll'
+rootProject.name = 'elasticity'
+include ':elasticity-lib'
+include ':elasticity-app'

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ElasticityDemo</string>
+
+    <string name="drawer_title">Elasticity Demo App</string>
+    <string name="drawer_subtitle">Xander.Wang</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="grid_view_demo_title">GridView Elasticity Demo</string>
+    <string name="list_view_demo_title">ListView Elasticity Demo</string>
+    <string name="recycler_view_demo_title">RecyclerView Elasticity Demo</string>
+    <string name="recycler_view_staggered_grid_demo_title">RecyclerView St.Grid Elasticity Demo</string>
+    <string name="scroll_view_demo_title">ScrollView Elasticity Demo</string>
+    <string name="viewpager_demo_title">ViewPager Elasticity Demo</string>
+    <string name="misc_views_demo_title">Misc. Elasticity Demo</string>
+
+    <string name="horiz_drag_label">⇔ Drag Horizontally</string>
+    <string name="vert_drag_label">⇳ Drag Vertically</string>
+</resources>

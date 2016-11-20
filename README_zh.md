@@ -1,21 +1,17 @@
 
-# First, this library is base on [Over-Scroll](https://github.com/EverythingMe/overscroll-decor)
+# 首先申明：这个库是基于 [Over-Scroll](https://github.com/EverythingMe/overscroll-decor)
 
 ---
 
-# Elasticity Support For Android's RecyclerView, ListView, GridView, ScrollView ...
+# Elasticity 支持 Android 原生控件 RecyclerView, ListView, GridView, ScrollView ...
  
-The library provides an elasticity over-scrolling effect applicable over almost all Android native scrollable views. It is also built to allow for very easy adaptation to support custom views.
-
-The core effect classes are loose-[decorators](https://en.wikipedia.org/wiki/Decorator_pattern) of Android views, and are thus decoupled from the actual view classes' implementations. That allows developers to apply the effect over views while keeping them as untampered 'black-boxes'. Namely, it allows for keeping important optimizations such as view-recycling intact.
-
-[中文文档](README_zh.md)
+这个库可以让几乎所有的 Android View 具有类似 MIUI 系统里面的一个弹性拉伸的效果。具体的效果可以参考下面的动图。
 
 ![demo](demo.gif)
 
-# Gradle Dependency
+# Gradle 依赖
 
-Add the following to your project's `build.gradle` file:
+在你的项目的 `build.gradle` 文件添加如下内容:
 ```groovy
 allprojects {
     repositories {
@@ -25,22 +21,20 @@ allprojects {
 }
 ```
 
-Add the following to your module's `build.gradle` file:
+在你的 module 的 `build.gradle` 文件中添加如下内容:
 
 ```groovy
 dependencies {
     // ...
     
-    compile 'xander.elasticity:elasticity:1.0.0'
+    compile 'me.everything:overscroll-decor-android:1.0.3'
 }
 ```
 
-# Usage
+# 使用
 
 ### RecyclerView
-
-Supports both linear and staggered-grid layout managers (i.e. all native Android layouts).
-Can be easily adapted to support custom layout managers.
+支持线性和瀑布流的 layout managers，可以很容易接入。实例接入代码如下：
 
 ```java
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -51,8 +45,8 @@ ElasticityHelper.setUpOverScroll(recyclerView, ORIENTATION.HORIZONTAL);
 ElasticityHelper.setUpOverScroll(recyclerView, ORIENTATION.VERTICAL);
 ```
 
-### RecyclerView with items swiping / dragging
-See _Advanced Usage_.
+### RecyclerView items 的 swiping / dragging 支持
+查看 _高级用法_ .
 
 
 ### ListView
@@ -86,7 +80,7 @@ HorizontalScrollView horizontalScrollView = (HorizontalScrollView) findViewById(
 ElasticityHelper.setUpOverScroll(horizontalScrollView);
 ```
 
-### Any View - Text, Image... (Always Over-Scroll Ready)
+### 任何 View - Text, Image... (可以认为一开始就是 Over-Scroll 状态)
 
 ```java
 View view = findViewById(R.id.demo_view);
@@ -97,7 +91,7 @@ ElasticityHelper.setUpStaticOverScroll(view, ORIENTATION.HORIZONTAL);
 ElasticityHelper.setUpStaticOverScroll(view, ORIENTATION.VERTICAL);
 ```
 
-# Advanced Usage
+# 高级用法
 
 ```java
 // Horizontal RecyclerView
@@ -121,8 +115,8 @@ View textView = findViewById(R.id.title);
 new HorizontalElasticityBounceEffect(new StaticElasticityAdapter(view));
 ```
 
-### RecyclerView with [ItemTouchHelper](http://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.html) based swiping / dragging
-The effect can work smoothly with the RecyclerView's built-in mechanism for items swiping and dragging (based on [ItemTouchHelper](http://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.html)). BUT, it requires some (very little) explicit configuration work:
+### RecyclerView 借助 [ItemTouchHelper](http://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.html) 实现 item swiping / dragging
+理论上可以很好的支持 item swiping / dragging (based on [ItemTouchHelper](http://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.html))， 但是还是建议按如下代码使用。
 
 ```java
 // Normally you would attach an ItemTouchHelper & a callback to a RecyclerView, this way:
@@ -138,13 +132,13 @@ new VerticalElasticityBounceEffect(new RecyclerViewElasticityAdapter(recyclerVie
 
 ```
 
-For more info on the swiping / dragging mechanism, try [this useful tutorial](https://medium.com/@ipaulpro/drag-and-swipe-with-recyclerview-b9456d2b1aaf).
+查看更多的 swiping / dragging 原理, 可以参考 [this useful tutorial](https://medium.com/@ipaulpro/drag-and-swipe-with-recyclerview-b9456d2b1aaf).
 
 ### Over-Scroll Listeners
-The effect provides a means for registering listeners of over-scroll related events. There are two types of listeners, as follows.
+提供 2 种监听的方式来获取滚动过程中的状态，具体如下
 
 #### State-Change Listener
-The over-scroll manager dispatches events onto a state-change listener denoting transitions in the effect's state:
+状态改变监听，通过这个监听回调，你可以知道状态的改变，使用范例如下：
 
 ```java
 
@@ -177,7 +171,7 @@ elasticity.setOverScrollStateListener(new IElasticityStateListener() {
 ```
 
 #### Real-time Updates Listener
-The over-scroll manager can also dispatch *real-time*, as-it-happens over-scroll events denoting the current offset resulting due to an over-scroll being in-effect (the offset thus denotes the current 'intensity').
+滑动过程监听，可以监听滑动过程中手势的具体变化。
 
 ```java
 // Note: over-scroll is set-up by explicity instantiating a decorator rather than using the helper; The two methods can be used interchangeably for registering listeners.
@@ -200,10 +194,9 @@ elasticity.setOverScrollUpdateListener(new IElasticityUpdateListener() {
 
 ```
 
+这两个监听可以单独使用，也可以同时使用，具体看你的需求。
 
-The two type of listeners can be used either separately or in conjunction, depending on your needs. Refer to the demo project's RecyclerView-demo section for actual concrete usage.
-    
-### Custom Views
+### 自定义 Views
 
 ```java
 public class CustomView extends View {
@@ -232,7 +225,7 @@ new VerticalElasticityBounceEffect(new IElasticityAdapter() {
 });
 ```
 
-### Effect Behavior Configuration
+### 完全自定义
 
 ```java
 /// Make over-scroll applied over a list-view feel more 'stiff'
@@ -251,7 +244,7 @@ new VerticalElasticityBounceEffect(new AbsListViewElasticityAdapter(view),
 
 ```
 
-## Credits
+## 感谢
 
 App icons by <a href="http://somerandomdude.com/work/iconic/">P.J. Onori</a>,
 <a href="http://graphicriver.net/item/wirecons-vector-icons/4586710?ref=tmthymllr">Timothy Miller</a>,

@@ -6,8 +6,10 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,6 +35,13 @@ public class ListViewDemoFragment extends Fragment {
         LayoutInflater appInflater = LayoutInflater.from(getActivity().getApplicationContext());
         ListAdapter adapter = new DemoListAdapter(appInflater, content);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(),"click " + position,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         ElasticityHelper.setUpOverScroll(listView);
     }

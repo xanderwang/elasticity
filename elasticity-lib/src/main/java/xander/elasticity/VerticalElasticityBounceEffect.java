@@ -30,11 +30,16 @@ public class VerticalElasticityBounceEffect extends ElasticityBounceEffectBase {
                 return false;
             }
 
+            if( dy == 0.f  ) { // just click event
+                return false;
+            }
+
 //            mAbsOffset = view.getTranslationY();
             mAbsOffset = getViewOffset(view);
             mDeltaOffset = dy;
             mDir = mDeltaOffset > 0;
-
+            Log.d("wxy-motion", String.format("mAbsOffset %s mDeltaOffset %s", mAbsOffset, mDeltaOffset));
+            Log.d("wxy-motion","mDir = " + mDir);
             return true;
         }
     }

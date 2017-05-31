@@ -32,7 +32,7 @@ Add the following to your module's `build.gradle` file:
 dependencies {
     // ...
     
-    compile 'com.github.XanderWang:elasticity:1.0.0'
+    compile 'com.github.XanderWang:elasticity:1.0.1'
 }
 ```
 
@@ -258,3 +258,6 @@ App icons by <a href="http://somerandomdude.com/work/iconic/">P.J. Onori</a>,
 <a href="http://graphicriver.net/item/wirecons-vector-icons/4586710?ref=tmthymllr">Timothy Miller</a>,
 <a href="http://icons4android.com">Icons4Android</a>, 
 <a href="http://icons8.com/android-icons">Icons8.com</a>
+
+# fix bug
+1. fix the bug can not click sometime

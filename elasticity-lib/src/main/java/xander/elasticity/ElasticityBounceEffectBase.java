@@ -66,8 +66,8 @@ public abstract class ElasticityBounceEffectBase implements IElasticity, View.On
 
     private float maxScaleFactor = MAX_SCALE_FACTOR;
 
-    protected static final int MAX_BOUNCE_BACK_DURATION_MS = 2000;
-    protected static final int MIN_BOUNCE_BACK_DURATION_MS = 1000;
+    protected static final int MAX_BOUNCE_BACK_DURATION_MS = 1000;
+    protected static final int MIN_BOUNCE_BACK_DURATION_MS = 500;
 
     // 状态变换的时候，记下方向和其他信息
     protected final OverScrollStartAttributes mOverScrollStartAttr = new OverScrollStartAttributes();

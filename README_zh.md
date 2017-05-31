@@ -29,7 +29,7 @@ allprojects {
 dependencies {
     // ...
     
-    compile 'com.github.XanderWang:elasticity:1.0.0'
+    compile 'com.github.XanderWang:elasticity:1.0.1'
 }
 ```
 
@@ -252,3 +252,7 @@ App icons by <a href="http://somerandomdude.com/work/iconic/">P.J. Onori</a>,
 <a href="http://graphicriver.net/item/wirecons-vector-icons/4586710?ref=tmthymllr">Timothy Miller</a>,
 <a href="http://icons4android.com">Icons4Android</a>, 
 <a href="http://icons8.com/android-icons">Icons8.com</a>
+
+
+# 修改的 bug
+1. 修改了某些情况下点击不响应的问题
